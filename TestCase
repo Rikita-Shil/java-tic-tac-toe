@@ -1,0 +1,143 @@
+Test Case 1 – New game starts with X
+Given -A new Tic-Tac-Toe game has been created.
+When - The current player is checked.
+Then - The current player should be X.
+
+
+
+Test Case 2 – New board is empty
+Given -A new game starts 
+When -The board is inspected.
+Then-Every cell on the board should be empty.
+
+
+
+Test Case 3 – A valid move places X
+Given-A new Tic-Tac-Toe game has been created.The board is empty.It is player X's turn.
+When -Player X selects row 0, column 0.
+Then-The move should be accepted.Cell (0,0) should contain X.
+
+
+
+Test Case 4 – Player changes after a valid move
+Given -It is player X's turn.
+When -Player X makes a valid move.
+Then-The current player should change to O.
+
+
+
+Test Case 5 – Players alternate correctly
+Given -A new Tic-Tac-Toe game has been created.
+When-Player X makes a valid move and Player O makes a valid move.
+Then -The current player should change back to X.
+
+
+Test Case 6 – A player cannot use an occupied cell
+Given -Cell (0,0) already contains X.It is player O's turn.
+When-Player O attempts to place a symbol in cell (0,0).
+Then -The move should be rejected.
+Cell (0,0) should still contain X.
+
+
+
+Test Case 7 – Invalid move does not change player
+Given-Cell (0,0) already contains X.It is player O's turn.
+When -Player O attempts to place a symbol in the occupied cell.
+Then -The move should be rejected.It should still be player O's turn.
+
+
+
+Test Case 8 – Negative row is rejected
+Given -A new Tic-Tac-Toe game has been created.
+When-The player selects row -1 and column 0.
+Then-The move should be rejected.
+
+
+
+Test Case 9 – Row greater than 2 is rejected
+Given -A new Tic-Tac-Toe game has been created.
+When-The player selects row 3 and column 0.
+Then-The move should be rejected.
+
+
+
+
+Test Case 10 – Negative column is rejected
+Given -A new Tic-Tac-Toe game has been created.
+When-The player selects row 0 and column -1.
+Then-The move should be rejected.
+
+
+
+
+Test Case 11 – Column greater than 2 is rejected
+Given-A new Tic-Tac-Toe game has been created.
+When -The player selects row 0 and column 3.
+Then-The move should be rejected.
+
+
+
+Test Case 12 – X wins across a row
+Given-X occupies cells (0,0) and (0,1).O occupies cells (1,0) and (1,1).It is X's turn.
+When-X places a symbol in cell (0,2).
+Then -X should be declared the winner.
+
+
+
+Test Case 13 – O wins across a row
+Given -O occupies cells (1,0) and (1,1).
+X occupies cells (0,0), (0,1), and (2,2).
+It is O's turn.
+When-O places a symbol in cell (1,2).
+Then-O should be declared the winner.
+
+
+
+Test Case 14 – Player wins down a column
+Given-X occupies cells (0,0) and (1,0).O occupies cells (0,1) and (1,1).It is X's turn.
+When-X places a symbol in cell (2,0).
+Then-X should be declared the winner.
+
+
+
+Test Case 15 – Player wins on the main diagonal
+Given-X occupies cells (0,0) and (1,1).O occupies cells (0,1) and (1,0).It is X's turn.
+When-X places a symbol in cell (2,2).
+Then-X should be declared the winner.
+
+
+
+Test Case 16 – Player wins on the opposite diagonal
+Given-X occupies cells (0,2) and (1,1).O occupies cells (0,0) and (1,0).It is X's turn.
+When-X places a symbol in cell (2,0).
+Then-X should be declared the winner.
+
+
+
+Test Case 17 – Two matching cells are not a win
+Given-X occupies cells (0,0) and (0,1).The third cell in the row is empty.
+When-The game checks for a winner.
+Then-No winner should be declared.
+
+
+
+Test Case 18 – Full board without winner is a draw
+Given-The board is full.No player has three matching symbols in a row, column, or diagonal.
+When-The game checks the board status.
+Then-The game should be declared a draw.
+
+
+
+Test Case 19 – Partially filled board is not a draw
+Given-The board contains empty cells.No player has won.
+When-The game checks the board status.
+Then-The game should not be declared a draw.
+
+
+
+
+Test Case 20 – Moves are rejected after the game ends
+Given-Player X has already won the game.
+When-Another player attempts to make a move.
+Then-The move should be rejected.The board should remain unchanged.The winner should remain X.
+
